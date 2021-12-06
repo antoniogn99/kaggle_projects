@@ -1,1 +1,1 @@
-# Kaggle Projects
+# Kaggle projects
