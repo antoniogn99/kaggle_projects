@@ -101,7 +101,7 @@ def create_input():
     df = pd.read_csv(train_csv_path)
     for i,filename in enumerate(os.listdir(train_images_path)):
         print(i,filename)
-        img = cv2.imread(train_images_path + "/" + filename)
+        img = cv2.imread(os.path.join(train_images_path, filename))
         coded_image = code_image(img)
         if len(coded_image) == 0: continue
         class_6 = int(df.loc[df['image_id'] == filename]['class_6'])
@@ -130,7 +130,7 @@ def show_input_sample():
 def explore():
     df = pd.read_csv(train_csv_path)
     for filename in os.listdir(train_images_path)[:100]:
-        img = cv2.imread(train_images_path + "/" + filename)
+        img = cv2.imread(os.path.join(train_images_path, filename))
         coded_image = code_image(img)
         if len(coded_image) == 0: continue
         class_6 = int(df.loc[df['image_id'] == filename]['class_6'])

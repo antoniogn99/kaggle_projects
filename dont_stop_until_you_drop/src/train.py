@@ -88,7 +88,7 @@ def load_gbc():
 def create_predictions_list(model):
     predictions = []
     for filename in os.listdir(config.test_images_path):
-        img = cv2.imread(config.test_images_path + filename)
+        img = cv2.imread(os.path.join(config.test_images_path, filename))
         coded_image = code_image(img)
         if len(coded_image) == 0:
             predictions.append(4)
@@ -105,9 +105,9 @@ def create_csv_submission(model):
     submission = pd.DataFrame()
     submission['image_id'] = test_images
     submission['class_6'] = predicted_values
-    submission.to_csv(config.directory + 'sub.csv', index=False)
+    submission.to_csv(os.path.join(config.directory, 'sub.csv'), index=False)
 
 
 if __name__ == "__main__":
-    model = load_gbc()
+    model = load_rf()
     create_csv_submission(model)

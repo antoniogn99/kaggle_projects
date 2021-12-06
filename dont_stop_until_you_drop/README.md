@@ -5,4 +5,4 @@ Goal: To create a model to determine different yoga poses using full-size human 
 
 Evaluation metric: Mean F1-Score
 
-Score: 0.74392
+Score: 0.78145 (Late Submission)
